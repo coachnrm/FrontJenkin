@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZJf/46OPp1Y=",
+  "success": true,
+  "projectFilePath": "D:\\FrontJenkin\\FrontJenkin.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.0-preview.5.25277.114\\microsoft.aspnetcore.app.internal.assets.10.0.0-preview.5.25277.114.nupkg.sha512"
+  ],
+  "logs": []
+}
