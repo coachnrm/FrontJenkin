@@ -1,0 +1,48 @@
+name: Build and Push to Docker Hub
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+env:
+  REPOSITORY: coachnrm/test
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Get next version number
+      id: version
+      run: |
+        # Since you mentioned you have version 43, we'll start from 44
+        # For production, you might want to fetch the latest version from Docker Hub API
+        NEXT_VERSION=44
+        echo "next_version=$NEXT_VERSION" >> $GITHUB_OUTPUT
+        echo "Using version: $NEXT_VERSION"
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        file: ./Dockerfile
+        push: ${{ github.event_name != 'pull_request' }}
+        tags: |
+          ${{ env.REPOSITORY }}:${{ steps.version.outputs.next_version }}
+          ${{ env.REPOSITORY }}:latest
+        cache-from: type=gha
+        cache-to: type=gha,mode=max

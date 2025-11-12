@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FrontJenkin")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4937249c945e475c82c754d4096d786dcc158b3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c93985df11dc4d2e176712c920930164d3c20f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("FrontJenkin")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FrontJenkin")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
